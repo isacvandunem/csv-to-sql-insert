@@ -1,29 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ffee23f-c22e-48a0-8645-bcbb8892cca7" name="Default" comment="" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
+    <list default="true" id="9ffee23f-c22e-48a0-8645-bcbb8892cca7" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/venv/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/venv/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="257" column="46" selection-start-line="257" selection-start-column="46" selection-end-line="257" selection-end-column="46" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,61 +18,18 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>column_definitions</find>
-      <find>data_type</find>
-      <find>increment</find>
-      <find>invert</find>
-      <find>int</find>
-    </findStrings>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/venv/main.py" />
-      </list>
-    </option>
+  <component name="ProjectId" id="1YZMlpX6vPPj1GNL7YvlyGRGCTH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1372" />
-    <option name="height" value="741" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="csvSqlInserter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csvSqlInserter" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="csvSqlInserter" type="b2602c69:ProjectViewProjectNode" />
-              <item name="csvSqlInserter" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -96,7 +39,7 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="$USER_HOME$/PycharmProjects/SQLGenerator/venv/bin/python" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -106,6 +49,9 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -126,67 +72,62 @@
     </task>
     <servers />
   </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1052" extended-state="6" />
-    <editor active="true" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3192389" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39957717" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
-    </layout>
-  </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="WindowStateProjectService">
+    <state x="388" y="0" key="#main" timestamp="1583146890347">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state x="388" y="0" key="#main/0.0.1366.723@0.0.1366.723" timestamp="1583146890347" />
+    <state width="1343" height="240" key="GridCell.Tab.0.bottom" timestamp="1583175011017">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.0.bottom/0.0.1366.723@0.0.1366.723" timestamp="1583175011017" />
+    <state width="1343" height="240" key="GridCell.Tab.0.center" timestamp="1583175011016">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.0.center/0.0.1366.723@0.0.1366.723" timestamp="1583175011016" />
+    <state width="1343" height="240" key="GridCell.Tab.0.left" timestamp="1583175011015">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.0.left/0.0.1366.723@0.0.1366.723" timestamp="1583175011015" />
+    <state width="1343" height="240" key="GridCell.Tab.0.right" timestamp="1583175011016">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.0.right/0.0.1366.723@0.0.1366.723" timestamp="1583175011016" />
+    <state width="1343" height="240" key="GridCell.Tab.1.bottom" timestamp="1583175011018">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.1.bottom/0.0.1366.723@0.0.1366.723" timestamp="1583175011018" />
+    <state width="1343" height="240" key="GridCell.Tab.1.center" timestamp="1583175011017">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.1.center/0.0.1366.723@0.0.1366.723" timestamp="1583175011017" />
+    <state width="1343" height="240" key="GridCell.Tab.1.left" timestamp="1583175011017">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.1.left/0.0.1366.723@0.0.1366.723" timestamp="1583175011017" />
+    <state width="1343" height="240" key="GridCell.Tab.1.right" timestamp="1583175011018">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="1343" height="240" key="GridCell.Tab.1.right/0.0.1366.723@0.0.1366.723" timestamp="1583175011018" />
+    <state width="684" height="364" key="XDebugger.FullValuePopup" timestamp="1583170254394">
+      <screen x="0" y="0" width="1366" height="723" />
+    </state>
+    <state width="684" height="364" key="XDebugger.FullValuePopup/0.0.1366.723@0.0.1366.723" timestamp="1583170254394" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/venv/main.py</url>
+          <line>287</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/venv/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1350">
-          <caret line="91" column="53" lean-forward="true" selection-start-line="91" selection-start-column="53" selection-end-line="91" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="42" lean-forward="true" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/venv/main.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="257" column="46" selection-start-line="257" selection-start-column="46" selection-end-line="257" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="re.sub(r&quot;\{[^}]*\}&quot;, lambda x: get_column_value(cols, line, x.group()), col.value_logic)" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
