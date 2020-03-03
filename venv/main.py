@@ -11,9 +11,18 @@ class Column:
         self.type = data_type
         self.example_data = example_data
         self.discard = False
-        self.merge = False
         self.invert = False  # only applicable to boolean columns
         self.nullable = example_data == ""
+
+        # merge related fields
+        self.merge = False
+        self.merge_index = 0
+        self.merge_char = ""
+        self.pad = False
+        self.pad_char = ""
+        self.pad_total_count = 0
+
+        # match related fields
         self.match_from_list = False
         self.match_values = []
         self.match_replacements = []
@@ -74,6 +83,10 @@ class Column:
             self.merge_info() if self.merge else "No"))
 
     def set_match_list(self) -> None:
+        """
+        Read both the match list and replacement list from the console, and set them in the correct properties
+        :return: None
+        """
         print("Type in the list of values to match this column, one per line. Empty Enter to Exit")
         self.match_values = []
         self.match_replacements = []
@@ -92,6 +105,19 @@ class Column:
             self.match_replacements.append(val)
 
         self.match_replacement_default = reader.read_val("Type in the value to apply if no match is found")
+
+    def set_merge_info(self) -> None:
+        """
+        Read the merging information as well as the padding for the merged column
+        :return: None
+        """
+        self.merge_index = reader.read_int("Type the number of the column to merge") - 1
+        self.merge_char = reader.read_val("Type the text that separates both merged columns")
+        self.pad = reader.read_yesno("Pad the merging column ?")
+        if self.pad:
+            self.pad_char = reader.read_val("Select the pad char")
+            self.pad_total_count = reader.read_int(
+                "What is the total amount of chars the padded column will have ?")
 
 
 class InputReader:
@@ -212,21 +238,15 @@ def open_column_menu(reader: InputReader, col: Column) -> None:
         elif option == "4":
             col.merge = reader.read_yesno("Merge this column with another one ?")
             if col.merge:
-                col.merge_index = reader.read_int("Type the number of the column to merge") - 1
-                col.merge_char = reader.read_val("Type the text that separates both merged columns")
-                col.pad = reader.read_yesno("Pad the merging column ?")
-                if col.pad:
-                    col.pad_char = reader.read_val("Select the pad char")
-                    col.pad_total_count = reader.read_int(
-                        "What is the total amount of chars the padded column will have ?")
+                col.set_merge_info()
+
         elif option == "5":
             col.nullable = reader.read_yesno("Is this column nullable ?")
             if col.nullable:
                 col.increment_if_null = reader.read_yesno(
                     "Generate incrementing number if this column is null ?")
-                col.increment_rule = reader.read_val(
-                    "Type in the extra rule for applying increment where 'val' refers to "
-                    "the value(Ex: val <= 100).Press Enter to have none")
+                col.increment_rule = reader.read_val("Type in the extra rule for applying increment where 'val' refers "
+                                                     "to the value(Ex: val <= 100).Press Enter to have none")
         elif option == "6":
             col.match_from_list = reader.read_yesno("Match this value from a list and apply another value ?")
             if col.match_from_list:
@@ -298,6 +318,7 @@ def generate_sql(lines: List[List[str]],
     :param lines: All the lines from the csv already interpreted as a 2D table of strings
     :param cols: All the interpreted and added columns
     :param date_format: The format the be interpreted in columns with type date
+    :param sql_insert_table: The table name for the inserts
     :return: A tuple with all the SQL as a string and a integer for the matched column mismatches
     """
     non_discard_columns = list(filter(lambda x: x.discard is False, cols))
@@ -313,7 +334,7 @@ def generate_sql(lines: List[List[str]],
             if col.discard:
                 continue
 
-            original_data = line[col.index] if col.index in line else ""
+            original_data = line[col.index] if 0 <= col.index < len(line) else ""
             data = original_data
 
             if col.nullable and (data == "" or col.is_considered_null(data)):
@@ -334,7 +355,7 @@ def generate_sql(lines: List[List[str]],
                         mismatch_count += 1
                 else:
                     if col.value_by_logic:
-                        expression = re.sub(r"\{[^}]*\}", lambda x: get_column_value(cols, line, x.group()),
+                        expression = re.sub(r"{([^}]*)}", lambda x: get_column_value(cols, line, x.group(1)),
                                             col.value_logic)
                         data = eval(expression)
 
