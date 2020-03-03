@@ -1,12 +1,13 @@
 import unittest
 import main
+from column import Column
 
 
 class MainTests(unittest.TestCase):
     def test_get_column_value(self):
-        col1 = main.Column("rrr", 0, "str", "sample1")
-        col2 = main.Column("abc", 1, "int", "sample1")
-        col3 = main.Column("xyz", 2, "str", "sample1")
+        col1 = Column("rrr", 0, "str", "sample1")
+        col2 = Column("abc", 1, "int", "sample1")
+        col3 = Column("xyz", 2, "str", "sample1")
 
         cols = [col1, col2, col3]
         line = ["text for col1", 99, "text for col3"]
