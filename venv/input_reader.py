@@ -5,14 +5,17 @@ class InputReader:
     def __init__(self):
         self.user_input = []
 
-    def read_val(self, message: str = ""):
+    def read_val(self, message: str = "", default = None):
         """
         Reads a generic value from the console. This function should be used instead of the normal input, so that the
         input is saved and shown in the end to the user.
         :param message: Message to be shown as question for the input
+        :param default: The default value that will be used if the user presses enter
         :return: The value read
         """
-        val = input(message + "\n")
+        val = input(message + ("(Enter for {})".format(default) if default else "") + "\n")
+        if default and val == "":
+            val = default
         self.user_input.append(val)
         return val
 

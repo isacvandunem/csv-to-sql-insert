@@ -61,28 +61,13 @@ def open_column_menu(reader: InputReader, col: Column) -> None:
         elif option == "3":
             col.discard = not col.discard
         elif option == "4":
-            col.merge = reader.read_yesno("Merge this column with another one ?")
-            if col.merge:
-                col.set_merge_info(reader)
-
+            col.read_merge_info(reader)
         elif option == "5":
-            col.nullable = reader.read_yesno("Is this column nullable ?")
-            if col.nullable:
-                col.increment_if_null = reader.read_yesno(
-                    "Generate incrementing number if this column is null ?")
-                col.increment_rule = reader.read_val("Type in the extra rule for applying increment where 'val' refers "
-                                                     "to the value(Ex: val <= 100).Press Enter to have none")
+            col.read_nullable_info(reader)
         elif option == "6":
-            col.match_from_list = reader.read_yesno("Match this value from a list and apply another value ?")
-            if col.match_from_list:
-                col.set_match_list(reader)
-
+            col.read_match_list(reader)
         elif option == "7":
-            col.value_by_logic = input_reader.read_yesno("Use a specific logic for this column values ?")
-            if col.value_by_logic:
-                print("Type whatever code you want to build this new column.")
-                print("Other columns are referable as {colname}")
-                col.logic_expression = input_reader.read_val("Ex: {price} * {tax} / 100")
+            col.read_logic(reader)
 
 
 def open_main_menu(reader: InputReader, cols: List[Column]) -> None:
@@ -176,7 +161,12 @@ def generate_sql(lines: List[List[str]],
             data = original_data
 
             if col.nullable and (data == "" or col.is_considered_null(data)):
-                data = str(index + 1) if col.increment_if_null else "null"
+                if col.increment_if_null:
+                    data = str(index + 1)
+                elif col.null_replacement_value:
+                    data = col.null_replacement_value
+                else:
+                    data = "null"
             else:
                 if col.match_from_list:
                     try:
@@ -261,21 +251,32 @@ def get_columns_from_file_data(file_lines: List[List[str]], file_has_headers: bo
 if __name__ == "__main__":
     input_reader = InputReader()
 
+    defaults = {
+        "encoding": "UTF-8",
+        "delimiter": ";",
+        "quote_char": "\"",
+        "date_format": "%d/%m/%Y %H:%M:%S"
+    }
+
     MAX_INPUT_LINES_FOR_SCREEN_PRINT = 60
     sql_output_file = "sql_insert.sql"
     user_input_file = "user_input.txt"
     file_path = input_reader.read_val("What is the csv file to generate SQL insert ?")
-    file_encoding = input_reader.read_val("What is the file encoding ?")
-    file_delimiter = input_reader.read_val("What is the columns delimiter ?")
-    file_quote_char = input_reader.read_val("What is the quote char ?")
+    file_encoding = input_reader.read_val("What is the file encoding ?", defaults["encoding"])
+    file_delimiter = input_reader.read_val("What is the columns delimiter ?", defaults["delimiter"])
+    file_quote_char = input_reader.read_val("What is the quote char ?", defaults["quote_char"])
     file_has_headers = input_reader.read_yesno("Does the first line have the headers ?")
-    date_format = input_reader.read_val("What is the date format? Enter to use the default %d/%m/%Y %H:%M:%S")
-    if date_format == "":
-        date_format = "%d/%m/%Y %H:%M:%S"
+    date_format = input_reader.read_val("What is the date format? Enter to use the default %d/%m/%Y %H:%M:%S",
+                                        defaults["date_format"])
 
     with open(file_path, newline='', encoding=file_encoding) as file:
         file_reader = csv.reader(file, delimiter=file_delimiter, quotechar=file_quote_char)
-        lines = [line for line in file_reader]
+        try:
+            lines = [line for line in file_reader]
+        except UnicodeDecodeError:
+            print("Incorrect charset for the provided file")
+            sys.exit()
+
         output_columns = get_columns_from_file_data(lines, file_has_headers)
         if file_has_headers:
             lines = lines[1:]
