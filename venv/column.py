@@ -179,3 +179,14 @@ class Column:
             print("Type whatever code you want to build this new column.")
             print("Other columns are referable as {colname}")
             self.logic_expression = reader.read_val("Ex: {price} * {tax} / 100")
+
+    def get_val_if_null(self, data: str, curr_increment_number: int):
+        if self.increment_if_null:
+            return str(curr_increment_number + 1)
+        elif self.null_replacement_value:
+            if self.type == "number" or self.type == "bool":
+                return data
+            else:
+                return "'{}'".format(self.null_replacement_value)
+        else:
+            return "null"
