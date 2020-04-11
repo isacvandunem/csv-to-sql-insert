@@ -288,7 +288,7 @@ if __name__ == "__main__":
     try:
         insert_sql, mismatch_count = generate_sql(lines, import_settings, sql_insert_table)
 
-        with open(sql_output_file, "w", newline='', encoding=file_encoding) as file_output:
+        with open(sql_output_file, "w", newline='', encoding=import_settings.encoding) as file_output:
             file_output.write(insert_sql)
 
         print("SQL exported to {}".format(sql_output_file))
@@ -302,6 +302,6 @@ if __name__ == "__main__":
         print("Given input (so you can re-import the same file by pasting in the input data):")
         print(all_user_input_data)
     else:
-        with open(user_input_file, "w", newline='', encoding=import_settings.file_encoding) as user_file_output:
+        with open(user_input_file, "w", newline='', encoding=import_settings.encoding) as user_file_output:
             user_file_output.write(all_user_input_data)
         print("User input exported to file {}".format(user_input_file))
